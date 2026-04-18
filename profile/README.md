@@ -1,224 +1,201 @@
-<h1 align="center" style="font-size: 72px; font-weight:800; color:#E53935;">
+<h1 align="center" style="font-size: 70px; font-weight:bold; color:#E53935;">
 AI Emergency Referral and Transport System
 </h1>
 
 <h3 align="center">
-A real-time AI-powered emergency healthcare ecosystem connecting patients, ambulances, and hospitals to reduce response time and save lives
+A real-time AI-powered emergency healthcare coordination platform connecting patients, ambulances, and hospitals
 </h3>
 
 <p align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Arial+Black&size=28&duration=3500&pause=800&color=E53935&center=true&vCenter=true&width=1200&lines=AI+Driven+Emergency+Healthcare+Platform;Real-Time+Ambulance+Dispatch+System;Smart+Hospital+Recommendation+Engine;Unified+Medical+Coordination+Network" />
+<img src="https://readme-typing-svg.demolab.com?font=Arial+Black&size=30&duration=3500&pause=800&color=E53935&center=true&vCenter=true&width=1200&lines=Solving+Emergency+Response+Delays;AI-Powered+Medical+Dispatch+System;Real-Time+Life-Saving+Coordination;Smart+Hospital+Selection+Engine" />
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/Organization-AI%20Healthcare-red">
-<img src="https://img.shields.io/badge/Architecture-Distributed-blue">
+<img src="https://img.shields.io/badge/System-AI%20Healthcare-red">
+<img src="https://img.shields.io/badge/Backend-Django-blue">
+<img src="https://img.shields.io/badge/Frontend-Flutter-green">
 <img src="https://img.shields.io/badge/Realtime-WebSocket-orange">
-<img src="https://img.shields.io/badge/Backend-Django-green">
-<img src="https://img.shields.io/badge/Frontend-Flutter-lightgrey">
+<img src="https://img.shields.io/badge/Architecture-Distributed-lightgrey">
 </p>
 
 ---
 
-# System Vision
+# Problem Statement
 
-Healthcare emergencies fail not because of lack of hospitals or ambulances, but because of fragmentation in communication, coordination, and decision-making.
+Emergency healthcare systems in many regions suffer from:
 
-This system solves that by creating a unified intelligent emergency network where every second is optimized using AI and real-time data.
-
----
-
-# Problem We Solve
-
-Traditional emergency systems suffer from:
-
-- Delayed ambulance dispatching  
-- Lack of real-time hospital availability  
-- No intelligent hospital selection  
-- Manual coordination between stakeholders  
+- Delayed ambulance response times  
+- Lack of real-time hospital coordination  
 - Poor resource visibility (beds, ICU, oxygen)  
-- Inefficient emergency routing  
+- No intelligent decision-making for hospital selection  
+- Fragmented communication between patients, drivers, and hospitals  
 
-These inefficiencies lead to increased mortality in critical cases.
-
----
-
-# Our Solution
-
-We introduce a fully integrated AI-driven emergency coordination platform that:
-
-- Understands emergency situations using AI  
-- Automatically dispatches nearest available ambulance  
-- Suggests optimal hospital based on real-time conditions  
-- Tracks ambulances live using GPS  
-- Prepares hospitals before patient arrival  
-- Manages hospital resources dynamically  
+These issues directly lead to preventable loss of lives.
 
 ---
 
-# High-Level System Architecture
+# Solution
 
-```
-Patients (Mobile App)
-        ↓
-AI Emergency Processing Engine
-        ↓
-Smart Dispatch System
-        ↓
-Ambulance Network (Real-Time Tracking)
-        ↓
-Hospital Recommendation Engine
-        ↓
-Hospital Resource Management System
-        ↓
-Emergency Completion & Logging
-```
+This system introduces an AI-driven emergency coordination platform that:
+
+- Instantly analyzes emergency requests using AI  
+- Finds the nearest available ambulance in real time  
+- Recommends the best hospital based on:
+  - Distance  
+  - Specialization  
+  - Resource availability  
+  - Waiting time  
+- Enables live tracking of ambulances  
+- Allows hospitals to prepare resources before patient arrival  
 
 ---
 
-# System Architecture (Technical View)
+# System Overview
+
+The system operates as a unified ecosystem:
 
 ```
-Flutter Mobile Application
-  ├── Patient Interface
-  ├── Ambulance Driver Interface
-  ├── Hospital Dashboard
-  └── AI Chat Assistant
+Patient → AI Analysis → Ambulance Dispatch → Hospital Recommendation → Real-Time Tracking → Treatment Completion
+```
+
+Each component communicates in real time using WebSockets and REST APIs.
+
+---
+
+# System Architecture
+
+```
+Mobile Application (Flutter)
+  ├── Patient Module
+  ├── Ambulance Driver Module
+  ├── Hospital Module
+  └── AI Assistant Interface
             ↓
-Django REST Backend
-  ├── Authentication System
-  ├── Emergency Management Engine
-  ├── Hospital Management System
-  ├── Ambulance Dispatch System
-  ├── AI Processing Layer
-  ├── Real-Time Tracking Service
+Backend (Django REST Framework)
+  ├── User Management
+  ├── Emergency Engine
+  ├── Hospital System
+  ├── Ambulance System
+  ├── AI Processing Engine
+  ├── Tracking Service
             ↓
 Infrastructure Layer
   ├── Database (SQLite/PostgreSQL)
-  ├── Redis Cache Layer
-  └── WebSocket Real-Time Server
+  ├── Redis Cache
+  └── WebSocket Server (Real-Time Communication)
 ```
 
 ---
 
-# Core Capabilities
+# Core System Capabilities
 
 | Capability | Description |
 |------------|------------|
-| AI Emergency Understanding | Converts symptoms into structured medical data |
-| Smart Ambulance Dispatch | Finds nearest available ambulance automatically |
-| Hospital Ranking Engine | Scores hospitals using AI-based logic |
-| Real-Time GPS Tracking | Live ambulance movement updates |
-| Resource Optimization | Tracks ICU beds, oxygen, and availability |
-| Multi-Role System | Patient, Driver, Hospital workflows |
-| Fault Tolerance | Handles delays, failures, and fallback routes |
-| Low Connectivity Support | Works in unstable network conditions |
+| Emergency Detection | AI understands medical emergencies from text |
+| Smart Dispatch | Finds nearest available ambulance automatically |
+| Hospital Ranking | AI scores hospitals for best match |
+| Live Tracking | Real-time ambulance movement monitoring |
+| Resource Monitoring | ICU beds, oxygen, ER status tracking |
+| Multi-Role System | Separate flows for patient, driver, hospital |
+| Fault Handling | Handles failures, delays, and unavailability |
 
 ---
 
-# AI Intelligence Layer
+# AI Intelligence Engine
 
-The AI engine acts as the decision-making core of the system.
+The AI system performs:
 
-## Emergency Understanding
-Transforms unstructured input into structured emergency classification:
+### 1. Emergency Classification
+Transforms raw input into structured medical data:
 
-- Cardiac arrest  
-- Stroke  
+- Cardiac emergency  
 - Trauma  
 - Respiratory failure  
+- Stroke  
 - Other critical conditions  
 
 ---
 
-## Priority Detection Logic
+### 2. Priority Scoring
 
 ```
-Priority Score =
-  Symptom Severity +
-  Time Sensitivity +
-  Risk Level
+Priority = Symptom Severity + Risk Level + Time Sensitivity
 ```
 
 ---
 
-## Hospital Recommendation Engine
+### 3. Hospital Recommendation Engine
 
-Hospitals are ranked using:
+Each hospital is scored based on:
 
 - Distance from patient  
-- Specialty match (cardiology, trauma, ICU)  
-- Bed availability  
+- Availability of ICU beds  
 - Oxygen level status  
-- Current load and waiting time  
+- Specialty availability  
+- Estimated waiting time  
 
 ---
 
-## Smart Dispatch Logic
+### 4. Smart Decision Logic
 
-Handles complex real-world conditions:
-
-- No ambulance availability fallback  
-- Hospital rejection routing  
-- Timeout-based reassignment  
-- Load balancing across hospitals  
+Handles:
+- No available ambulances  
+- Hospital rejection  
+- Timeout fallback routing  
+- Load balancing between hospitals  
 
 ---
 
 # Emergency Lifecycle
 
 ```
-1. Patient triggers emergency request
+1. Patient submits emergency request
 2. AI analyzes symptoms and location
 3. System finds nearest ambulance
-4. Hospital recommendation is generated
-5. Hospital receives pre-arrival alert
+4. AI ranks hospitals
+5. Hospital receives alert and prepares resources
 6. Ambulance is dispatched
-7. Real-time tracking begins
+7. Live tracking begins
 8. Patient is picked up
 9. Patient is delivered to hospital
-10. Emergency is closed and recorded
+10. Emergency is completed and logged
 ```
 
 ---
 
-# Real-Time System Design
+# Real-Time Communication System
 
 ```
-Ambulance GPS Stream
-        ↓
-WebSocket Server
-        ↓
-Patient Dashboard + Hospital Dashboard
+Driver GPS → WebSocket Server → Patient + Hospital Dashboards
 ```
 
-Enables:
-- Live ambulance tracking  
-- ETA updates  
+This enables:
+- Live ambulance movement tracking  
+- ETA updates in real time  
 - Instant hospital notifications  
 
 ---
 
-# Hospital Resource Management
+# Resource Management System
 
-Hospitals manage critical resources:
+Hospitals manage:
 
 - ICU beds  
 - General beds  
-- Oxygen supply  
-- Emergency rooms  
-- Surgical units  
+- Oxygen levels  
+- Emergency room availability  
+- Surgical room availability  
 
-## Resource Safety Model
+### Safety Mechanism
 
 ```
-Request → Lock → Reserve → Assign → Release
+Request → Lock Resource → Reserve → Assign → Release After Completion
 ```
 
-Ensures:
-- No double booking  
-- No resource conflicts  
-- Safe concurrent handling  
+Prevents:
+- Double booking  
+- Over-allocation  
+- Resource conflicts  
 
 ---
 
@@ -235,86 +212,74 @@ Roles:
 
 ---
 
-# API Ecosystem
+# API System Overview
 
-## Authentication
+### Authentication
 - /api/users/register/
 - /api/users/verify-otp/
 - /api/users/refresh-token/
 
-## Emergency System
+### Emergency
 - /api/emergencies/
 - /api/emergencies/{id}/status/
 
-## Ambulance System
+### Ambulance
 - /api/ambulances/find-nearest/
 - /api/ambulances/{id}/location/
 
-## Hospital System
+### Hospital
 - /api/hospitals/suggest/
 - /api/hospitals/{id}/resources/
 
-## AI Engine
+### AI
 - /api/ai/process-emergency/
 - /api/ai/chat/
 
 ---
 
-# Data Model Overview
+# Data Models
 
-## User
+### User
 - Phone number  
 - Role  
 - Medical history  
-- Emergency contacts  
 
-## Emergency Request
+### Emergency Request
 - Type  
 - Priority  
 - Status lifecycle  
-- Location data  
+- Location  
 
-## Hospital
-- Bed capacity  
+### Hospital
+- Beds  
 - ICU availability  
-- Oxygen levels  
-- Medical specialties  
+- Oxygen level  
+- Specialties  
 
-## Ambulance
-- GPS location  
+### Ambulance
+- Location  
 - Status  
-- Assigned driver  
+- Driver assignment  
 
 ---
 
-# Key System Features
+# Key Features
 
 | Feature | Description |
 |----------|------------|
-| AI Emergency Detection | Understands medical input intelligently |
-| Smart Hospital Matching | AI ranking system for hospitals |
-| Live Tracking | Real-time ambulance movement |
-| Resource Reservation System | Prevents hospital overbooking |
-| Multi-Role Architecture | Separate workflows per user type |
-| Scalable Backend | Designed for expansion |
+| AI Emergency Detection | Understands symptoms automatically |
+| Smart Hospital Selection | AI ranking system |
+| Real-Time Tracking | Live ambulance movement |
+| Resource Reservation | Prevents conflicts |
+| Multi-Role Dashboards | Separate interfaces |
+| Scalable Architecture | Ready for large systems |
 
 ---
 
-# System Impact
+# Installation
 
-This system improves healthcare response by:
+### Backend
 
-- Reducing ambulance response time  
-- Optimizing hospital utilization  
-- Improving survival rate in emergencies  
-- Automating decision-making in critical situations  
-- Connecting fragmented healthcare systems into one network  
-
----
-
-# Installation Overview
-
-## Backend Setup
 ```
 cd backend
 python -m venv venv
@@ -324,7 +289,8 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Mobile Setup
+### Mobile App
+
 ```
 cd mobile
 flutter pub get
@@ -336,26 +302,34 @@ flutter run
 # Testing Flow
 
 ```
-Register → OTP → Emergency Request → AI Processing → Dispatch → Tracking → Hospital Arrival → Completion
+Register → OTP Verification → Emergency Request → AI Processing → Dispatch → Tracking → Completion
 ```
 
 ---
 
-# Future Vision
+# Future Enhancements
 
-- Voice-based emergency reporting system  
-- Predictive emergency demand forecasting  
-- Wearable device integration (smartwatch trigger)  
-- Offline-first emergency system for rural areas  
-- AI-driven route optimization  
-- National-scale deployment support  
-- Cloud-native scaling architecture  
+| Feature | Description |
+|--------|------------|
+| Voice AI Assistant | Voice emergency reporting |
+| Predictive Analytics | Forecast emergency demand |
+| Wearable Integration | Smartwatch triggers |
+| Offline Mode | Rural connectivity support |
+| Advanced Routing | AI-powered GPS optimization |
+| Cloud Scaling | Multi-region deployment |
 
 ---
 
-# Organization Vision
+# Project Impact
 
-This organization aims to build a unified AI healthcare infrastructure that connects emergency services, hospitals, and patients into a single intelligent real-time system capable of saving lives through automation and data-driven decision-making.
+This system directly improves:
+
+- Emergency response time  
+- Hospital coordination efficiency  
+- Resource utilization  
+- Patient survival probability  
+
+It transforms fragmented emergency systems into a unified intelligent network.
 
 ---
 
@@ -371,4 +345,4 @@ MIT License
 - Flutter SDK  
 - WebSocket Technology  
 - AI APIs (OpenAI, Gemini, HuggingFace)  
-- Healthcare system design principles  
+- Medical emergency coordination standards  
